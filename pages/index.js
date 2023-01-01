@@ -10,12 +10,11 @@ export default function Home() {
   const [connectStatus, setConnectStatus] = useState("Connect");
 
   const connect = async () => {
-    // try {
-    //   const res = await axios.get("./api/device");
-    //   console.log(res);
-    // } finally {
-
-    // }
+    try {
+      const res = await axios.get("./api/device");
+      console.log(res);
+    } finally {
+    }
     setClient(mqttConnect());
   };
 
