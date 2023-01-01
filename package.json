@@ -4,14 +4,17 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@next/font": "13.1.1",
+    "axios": "^1.2.2",
     "eslint": "8.30.0",
     "eslint-config-next": "13.1.1",
+    "mongodb": "^4.13.0",
+    "mqtt": "^4.3.7",
     "next": "13.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
