@@ -104,6 +104,19 @@ nav .navbar-nav li a {
   font-weight: bold;
 }
 
+.round-border {
+  border: 2px solid;
+  padding: 10px;
+  border-radius: 25px;
+  font-size: small;
+  font-weight: bold;
+}
+
+.danger {
+  color: red;
+  border-color: red;
+}
+
 .personal-box {
   display: flex;
   flex-direction: column;
@@ -224,15 +237,33 @@ nav .navbar-nav li a {
 
 .device-box {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 36px;
-  padding: 24px;
-  padding-left: 64px;
-  padding-right: 64px;
+  flex-direction: column;
+  justify-content: space-between;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
     rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.device-box .header-s {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  padding-left: 5%;
+  padding-right: 5%;
+  border-bottom-color: #ccc;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+}
+
+.device-box .header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .contact-list {
