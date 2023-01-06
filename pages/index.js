@@ -16,7 +16,14 @@ export default function DashboardPage() {
   const [deviceList, setDeviceList] = useState([]);
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    mqttPublish(props.client, {
+      topic: "group17/command",
+      qos: 0,
+      payload: `0`,
+    });
+  };
   const handleShow = () => {
     setShow(true);
     console.log("use");
