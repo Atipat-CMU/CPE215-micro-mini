@@ -18,7 +18,7 @@ export default function DashboardPage() {
 
   const handleClose = () => {
     setShow(false);
-    mqttPublish(props.client, {
+    mqttPublish(client, {
       topic: "group17/command",
       qos: 0,
       payload: `0`,
