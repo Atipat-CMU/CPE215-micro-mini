@@ -19,7 +19,7 @@ function BoxDevice(props) {
         }}
       >
         <div className="text-h">{props.name}</div>
-        <div className="round-border danger">Busy</div>
+        <div className="round-border danger">available</div>
       </div>
       {isShow && (
         <div>

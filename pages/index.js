@@ -111,7 +111,6 @@ export default function DashboardPage() {
         <Modal.Header closeButton>
           <Modal.Title>Is you Finish</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Please reset when you already Finish</Modal.Body>
         <Modal.Footer>
           {/* <Button variant="secondary" onClick={handleClose}>
             Close
