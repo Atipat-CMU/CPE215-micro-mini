@@ -5,6 +5,8 @@ import { mqttConnect, mqttSub, mqttPublish } from "../mqtt/mqttLib";
 import { callUserTestToken } from "../mqtt/authLib";
 import { useRouter } from "next/router";
 import { v4 as uuidv4 } from "uuid";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 
 export default function DashboardPage() {
   const [client, setClient] = useState(null);
@@ -12,6 +14,13 @@ export default function DashboardPage() {
   const [payload, setPayload] = useState({});
   const [connectStatus, setConnectStatus] = useState("Connect");
   const [deviceList, setDeviceList] = useState([]);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => {
+    setShow(true);
+    console.log("use");
+  };
 
   const router = useRouter();
 
@@ -46,6 +55,7 @@ export default function DashboardPage() {
       }
     } catch (err) {
       // alert(err.response.data.message);
+      if (client) client.end();
       router.push("/login");
     }
   };
@@ -82,7 +92,7 @@ export default function DashboardPage() {
   }, [client, isAuth]);
 
   return (
-    <>
+    <div>
       <div>
         {deviceList.map((x) => {
           return (
@@ -91,10 +101,31 @@ export default function DashboardPage() {
               name={x.device_name}
               slots={x.slots}
               client={client}
+              onSelect={handleShow}
             ></BoxDevice>
           );
         })}
       </div>
-    </>
+
+      <Modal show={show} onHide={handleClose} animation={false}>
+        <Modal.Header closeButton>
+          <Modal.Title>Is you Finish</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          {/* <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button> */}
+          <Button
+            variant="primary"
+            onClick={() => {
+              handleClose();
+            }}
+          >
+            Finish
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </div>
   );
 }

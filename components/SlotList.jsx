@@ -8,9 +8,10 @@ export default function SlotList(props) {
       onClick={() => {
         mqttPublish(props.client, {
           topic: "group17/command",
-          qos: 1,
+          qos: 0,
           payload: `${props.id}`,
         });
+        props.onSelect();
       }}
     >
       <div className="text-h">{props.id}</div>

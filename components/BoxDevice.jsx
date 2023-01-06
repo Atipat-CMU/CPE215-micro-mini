@@ -25,7 +25,12 @@ function BoxDevice(props) {
         <div>
           {slots.map((x, i) => {
             return (
-              <SlotList key={i} id={i + 1} client={props.client}>
+              <SlotList
+                key={i}
+                id={i + 1}
+                client={props.client}
+                onSelect={props.onSelect}
+              >
                 {" "}
               </SlotList>
             );
